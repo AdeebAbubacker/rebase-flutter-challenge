@@ -11,10 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Rebase Flutter Challenge',
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        primarySwatch: Colors.pink,
-      ),
+      theme: ThemeData(brightness: Brightness.dark, primarySwatch: Colors.pink),
       home: const CounterPage(),
     );
   }
@@ -31,19 +28,15 @@ class _CounterPageState extends State<CounterPage> {
   int _counter = 0;
 
   void _incrementCounter() {
-    // INTENTIONAL ERROR: setState is called but counter is not actually incremented inside it
     setState(() {
-      // _counter++; // Candidate needs to uncomment this
+      _counter++;
     });
-    // _counter++; // OR move this inside setState
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Rebase Challenge'),
-      ),
+      appBar: AppBar(title: const Text('Rebase Challenge')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -57,10 +50,7 @@ class _CounterPageState extends State<CounterPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        // INTENTIONAL ERROR: Missing function call
-        onPressed: () {
-          // Oops, forgot to call _incrementCounter
-        },
+        onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
